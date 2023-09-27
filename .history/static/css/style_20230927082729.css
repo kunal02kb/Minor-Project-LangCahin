@@ -11,13 +11,12 @@ body {
     color: #333;
     line-height: 1.6;
     height: auto;
-    min-height: 690px;
+    min-height: 700px;
 }
 
 .container {
-    width: 95%;
-    min-height: 670px;
-    margin: 15px auto;
+    width: 90%;
+    margin: 10px auto;
     padding: 30px;
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

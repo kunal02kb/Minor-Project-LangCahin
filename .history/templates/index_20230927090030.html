@@ -19,16 +19,16 @@
             <input type="text" id="jd" name="name" placeholder="Job Title">
             <button id="magic-button" type="submit">Do The Magic</button>
         </form>
-        <div id="result" style="display: none;">
+        <div id="result">
             <img id="profile-pic" src="" alt="Profile Picture" style="display: none; max-width: 100%; height: auto; border-radius: 50%; margin-bottom: 20px;">
             <h2>Summary</h2>
-            <p id="summary-and-facts"></p>
+            <p id="summary-and-facts" style="display: none;"></p>
             <h2>Interesting Facts</h2>
-            <div id="interests"></div>
+            <div id="interests" style="display: none;"></div>
             <h2>Ice Breakers</h2>
-            <div id="ice-breakers"></div>
+            <div id="ice-breakers" style="display: none;"></div>
             <h2>Topics of Interest</h2>
-            <div id="topics-of-interest"></div>
+            <div id="topics-of-interest" style="display: none;"></div>
         </div>
     </div>
     <script>
@@ -44,10 +44,13 @@
                         $('#profile-pic').attr('src', response.picture_url); // Update the profile picture src attribute
                         $('#profile-pic').show(); // Show the profile picture
                         $('#summary-and-facts').text(response.summary);
+                        $('#profile-pic').show();
                         $('#interests').html('<ul>' + response.facts.map(fact => '<li>' + fact + '</li>').join('') + '</ul>');
+                        $('#profile-pic').show();
                         $('#ice-breakers').html('<ul>' + response.ice_breakers.map(ice_breaker => '<li>' + ice_breaker + '</li>').join('') + '</ul>');
+                        $('#profile-pic').show();
                         $('#topics-of-interest').html('<ul>' + response.interests.map(topic => '<li>' + topic + '</li>').join('') + '</ul>');
-                        $('#result').show();
+                        $('#profile-pic').show();
                     },
                     error: function (error) {
                         console.log(error);
