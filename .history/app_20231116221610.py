@@ -13,7 +13,7 @@ def index():
 def process():
     name = request.form["name"]
     job_description = request.form["job_description"]
-    person_info, profile_pic_url = ice_break(name=name, job_description=job_description)
+    person_info, profile_pic_url = ice_break(name=name)
 
     # print(person_info.summary)
     # print( person_info.topic_of_interest)

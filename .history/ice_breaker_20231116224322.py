@@ -47,7 +47,7 @@ def ice_break(name: str, job_description: str) -> Tuple[PersonIntel,str]:
 
     print(linkedin_data)
 
-    result = chain.run(information=linkedin_data, job_description=job_description)
+    result = chain.run(information=linkedin_data)
     return person_intel_parser.parse(result),linkedin_data.get("profile_pic_url")
 
 

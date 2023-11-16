@@ -19,15 +19,15 @@ serpapi_api_key = os.environ["SERPAPI_API_KEY"]
 
 def ice_break(name: str, job_description: str) -> Tuple[PersonIntel,str]:
     summary_template = """
-        given the information {information} about a person with the job profile "{job_description}", I want you to create:
+        given the information {information} about a person from I want you to create:
         1. a short summary
         2. two interesting facts about them.
         3. A topic that may interest them
-        4. 5 Interview questions specific to the job description to interview them {format_instructions}
+        4. 5 interview question for this person {format_instructions} for this job profile {job_description}
 """
-
+    print(job_description)
     summary_prompt_template = PromptTemplate(
-        input_variables=["information", "job_description"],
+        input_variables=["information"],
         template=summary_template,
         partial_variables={
             "format_instructions": person_intel_parser.get_format_instructions()
@@ -47,7 +47,7 @@ def ice_break(name: str, job_description: str) -> Tuple[PersonIntel,str]:
 
     print(linkedin_data)
 
-    result = chain.run(information=linkedin_data, job_description=job_description)
+    result = chain.run(information=linkedin_data)
     return person_intel_parser.parse(result),linkedin_data.get("profile_pic_url")
 
 

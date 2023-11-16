@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Ice Breaker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
+    <div class="spinner-container" id="spinner-container" style="display: none;">
+        <i id="loading-spinner" class="fas fa-spinner fa-spin"></i>
+    </div>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Ice Breaker</h1>
+        <form id="name-form">
+            <input type="text" id="name" name="name" placeholder="Enter name">
+            <button id="magic-button" type="submit">Do The Magic</button>
+        </form>
+        <div id="result">
+            <img src="templates\pic.png" alt="picture">
+            <h2>Summary</h2>
+            <p id="summary-and-facts">
+                Kunal Bansal is a Ninja Entrepreneur at Coding Ninjas. He is a fast learner and always ready for opportunities to test himself and prove his worth. He is currently pursuing his Bachelor of Technology in Computer Science from Maharaja Agrasen Institute Of Technology in New Delhi, India.
+            </p>
+            <h2>Interesting Facts</h2>
+            <div id="interests">
+                <ul>
+                    <li>Kunal Bansal is a 3-star coder on CodeChef.</li>
+                    <li>He has participated in the 30 Days of Google Cloud program.</li>
+                </ul>
+            </div>
+            <h2>Ice Breakers</h2>
+            <div id="ice-breakers">
+                <ul>
+                    <li>Hi Kunal, I noticed that you're a Ninja Entrepreneur at Coding Ninjas. How has your experience been so far?</li>
+                    <li>Hey Kunal, I saw that you're a 3-star coder on CodeChef. That's impressive! How did you achieve that?</li>
+                </ul>
+            </div>
+            <h2>Topics of Interest</h2>
+            <div id="topics-of-interest">
+                <ul>
+                    <li>Coding and programming</li>
+                    <li>Entrepreneurship</li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div id="result" style="display: none;">
+            <img id="profile-pic" src="" alt="Profile Picture" style="display: none; max-width: 100%; height: auto; border-radius: 50%; margin-bottom: 20px;">
+            <h2>Summary</h2>
+            <p id="summary-and-facts"></p>
+            <h2>Interesting Facts</h2>
+            <div id="interests"></div>
+            <h2>Ice Breakers</h2>
+            <div id="ice-breakers"></div>
+            <h2>Topics of Interest</h2>
+            <div id="topics-of-interest"></div>
+        </div> -->
+    </div>
+    <!-- <script>
+        $(document).ready(function () {
+            $('#name-form').on('submit', function (e) {
+                e.preventDefault();
+                $('#spinner-container').show();
+                $.ajax({
+                    url: '/process',
+                    data: $('#name-form').serialize(),
+                    type: 'POST',
+                    success: function (response) {
+                        $('#profile-pic').attr('src', response.picture_url); // Update the profile picture src attribute
+                        $('#profile-pic').show(); // Show the profile picture
+                        $('#summary-and-facts').text(response.summary);
+                        $('#interests').html('<ul>' + response.facts.map(fact => '<li>' + fact + '</li>').join('') + '</ul>');
+                        $('#ice-breakers').html('<ul>' + response.ice_breakers.map(ice_breaker => '<li>' + ice_breaker + '</li>').join('') + '</ul>');
+                        $('#topics-of-interest').html('<ul>' + response.interests.map(topic => '<li>' + topic + '</li>').join('') + '</ul>');
+                        $('#result').show();
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    },
+                    complete: function () {
+                        $('#spinner-container').hide();
+                    }
+                });
+            });
+        });
+    </script> -->
+</body>
+</html>
